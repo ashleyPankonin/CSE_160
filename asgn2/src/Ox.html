@@ -1,0 +1,63 @@
+<!--
+Ashley Pankonin
+arpankon@ucsc.edu
+
+Notes to Grader:
+Used AI to debug
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blocky Animal</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+    </canvas>
+    
+  <div style="margin-top:10px;">
+    <h3>View</h3>
+    <label>Rotate Y: <span id="globalYValue">0</span></label>
+    <input type="range" id="globalYSlider" min="-180" max="180" value="0" step="1">
+    <br>
+    <label>Rotate X: <span id="globalXValue">0</span></label>
+    <input type="range" id="globalXSlider" min="-90" max="90" value="0" step="1">
+  </div>
+
+  <div style="margin-top:10px;">
+    <h3>Joints</h3>
+    <label>Hip Angle: <span id="rightHipValue">0</span></label>
+    <input type="range" id="rightHipSlider" min="-60" max="60" value="0" step="1">
+    <br>
+    <label>Knee Angle: <span id="rightKneeValue">0</span></label>
+    <input type="range" id="rightKneeSlider" min="-90" max="90" value="0" step="1">
+    <br>
+    <label>Foot Angle: <span id="footValue">0</span></label>
+    <input type="range" min="-45" max="45" value="0" id="footSlider">
+  </div>
+
+  <div style="margin-top:10px;">
+    <h3>Animation</h3>
+    <button id="animOnButton">Animation ON</button>
+    <button id="animOffButton">Animation OFF</button>
+    <p style="margin:6px 0 0 0;">
+      Tip: Shift + Click triggers the special "poke" animation.
+    </p>
+  </div>
+
+    <p id="perf" style="margin-top:10px;">ms: -- fps: --</p>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="Point.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Cylinder.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Cube.js"></script>
+    <script src="ox.js"></script>
+  </body>
+</html>
