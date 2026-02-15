@@ -232,7 +232,7 @@ function main() {
   wolf.y = 0.2;
   const base = (typeof window !== "undefined" && window.location) ? (window.location.href.replace(/[^/]*$/, "")) : "";
   initTextures(base);
-  loadObjModel(base + "minecraft-wolf/source/wolf.obj", function (mesh) { wolfMesh = mesh; if (mesh) console.log("Wolf model loaded:", mesh.numVertices, "vertices"); });
+  loadObjModel(base + "src/minecraft-wolf/source/wolf.obj", function (mesh) { wolfMesh = mesh; if (mesh) console.log("Wolf model loaded:", mesh.numVertices, "vertices"); });
   setupKeyboard();
   setupMouseLook();
   window.addEventListener("resize", onResize);
@@ -265,7 +265,7 @@ function initTextures(base) {
   g_groundTexture = createTextureWithFallback(src + "green.jpg", true);
   g_dirtTexture = createTextureWithFallback(src + "dirt.jpeg", false, "dirt");
   g_wallTexture = g_skyTexture;
-  g_wolfTexture = createTextureWithFallback(base + "minecraft-wolf/textures/wolf.png", false, "wolf");
+  g_wolfTexture = createTextureWithFallback(base + "src/minecraft-wolf/textures/wolf.png", false, "wolf");
 }
 
 function isPowerOf2(n) { return n > 0 && (n & (n - 1)) === 0; }
