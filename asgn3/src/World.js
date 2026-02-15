@@ -24,7 +24,6 @@ let wolfMesh = null;
 let wolfMeshBuffer = null;
 let wolfUVBuffer = null;
 
-let fpsFrameCount = 0;
 let fpsLastTime = performance.now();
 let fpsEl = null;
 
@@ -404,14 +403,12 @@ function tick() {
   } catch (e) {
     console.error("renderScene error:", e);
   }
-  fpsFrameCount++;
-  const now = performance.now();
-  const elapsed = now - fpsLastTime;
-  if (fpsEl && elapsed >= 250) {
-    const fps = Math.round((fpsFrameCount * 1000) / elapsed);
-    fpsEl.textContent = fps + " FPS";
-    fpsFrameCount = 0;
+  if (fpsEl) {
+    const now = performance.now();
+    const dt = now - fpsLastTime;
     fpsLastTime = now;
+    const fps = dt > 0 ? Math.round(1000 / dt) : 0;
+    fpsEl.textContent = fps + " FPS";
   }
   requestAnimationFrame(tick);
 }
