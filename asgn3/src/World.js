@@ -24,6 +24,10 @@ let wolfMesh = null;
 let wolfMeshBuffer = null;
 let wolfUVBuffer = null;
 
+let fpsFrameCount = 0;
+let fpsLastTime = performance.now();
+let fpsEl = null;
+
 const MAP_SIZE = 32;
 const OPEN_FIELD_RADIUS = 6;
 const MAX_BLOCK_HEIGHT = 8;
@@ -238,6 +242,7 @@ function main() {
   window.addEventListener("resize", onResize);
   onResize();
   gl.viewport(0, 0, canvas.width, canvas.height);
+  fpsEl = document.getElementById("fps");
   requestAnimationFrame(tick);
   } catch (e) {
     console.error("main() error:", e);
@@ -398,6 +403,15 @@ function tick() {
     renderScene();
   } catch (e) {
     console.error("renderScene error:", e);
+  }
+  fpsFrameCount++;
+  const now = performance.now();
+  const elapsed = now - fpsLastTime;
+  if (fpsEl && elapsed >= 250) {
+    const fps = Math.round((fpsFrameCount * 1000) / elapsed);
+    fpsEl.textContent = fps + " FPS";
+    fpsFrameCount = 0;
+    fpsLastTime = now;
   }
   requestAnimationFrame(tick);
 }
