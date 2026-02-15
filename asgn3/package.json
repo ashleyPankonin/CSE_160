@@ -1,0 +1,8 @@
+{
+  "name": "asgn3-world",
+  "private": true,
+  "scripts": {
+    "start": "npx serve . -p 8000",
+    "serve": "npx serve . -p 8000"
+  }
+}

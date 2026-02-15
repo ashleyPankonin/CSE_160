@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <base href="./" />
+  <title>Assignment 3 - World</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #webgl { display: block; width: 100vw; height: 100vh; min-width: 400px; min-height: 300px; }
+    #help {
+      position: fixed; left: 10px; top: 10px;
+      background: rgba(0,0,0,0.7); color: #eee; padding: 8px 12px;
+      font-size: 12px; border-radius: 6px; pointer-events: none;
+    }
+  </style>
+</head>
+<body onload="main()">
+  <canvas id="webgl" width="800" height="600">Please use a browser that supports WebGL.</canvas>
+  <div id="help">W/S: forward/back · A/D: strafe · Space/Shift: up/down · Left-click: add block · Right-click: remove block</div>
+
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="lib/camera.js"></script>
+  <script src="src/Triangle.js"></script>
+  <script src="src/Cube.js"></script>
+  <script src="src/World.js"></script>
+</body>
+</html>
