@@ -363,8 +363,8 @@ function setupKeyboard() {
     switch (ev.code) {
       case "KeyW": camera.moveForward(); ev.preventDefault(); break;
       case "KeyS": camera.moveBackwards(); ev.preventDefault(); break;
-      case "KeyA": camera.moveLeft(); ev.preventDefault(); break;
-      case "KeyD": camera.moveRight(); ev.preventDefault(); break;
+      case "KeyA": camera.moveRight(); ev.preventDefault(); break;
+      case "KeyD": camera.moveLeft(); ev.preventDefault(); break;
       case "KeyQ": camera.panLeft(); ev.preventDefault(); break;
       case "KeyE": camera.panRight(); ev.preventDefault(); break;
       case "Space": camera.moveUp(); ev.preventDefault(); break;
