@@ -230,8 +230,9 @@ function main() {
   wolf.x = spawn.x - 2;
   wolf.z = spawn.z - 2;
   wolf.y = 0.2;
-  initTextures();
-  loadObjModel("../minecraft-wolf/source/wolf.obj", function (mesh) { wolfMesh = mesh; if (mesh) console.log("Wolf model loaded:", mesh.numVertices, "vertices"); });
+  const base = (typeof window !== "undefined" && window.location) ? (window.location.href.replace(/[^/]*$/, "")) : "";
+  initTextures(base);
+  loadObjModel(base + "minecraft-wolf/source/wolf.obj", function (mesh) { wolfMesh = mesh; if (mesh) console.log("Wolf model loaded:", mesh.numVertices, "vertices"); });
   setupKeyboard();
   setupMouseLook();
   window.addEventListener("resize", onResize);
@@ -257,15 +258,14 @@ function onResize() {
   }
 }
 
-function initTextures() {
+function initTextures(base) {
   gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-  const base = (typeof window !== "undefined" && window.location) ? (window.location.href.replace(/[^/]*$/, "")) : "";
   const src = base + "src/";
   g_skyTexture = createTextureWithFallback(src + "sky.jpg", false);
   g_groundTexture = createTextureWithFallback(src + "green.jpg", true);
   g_dirtTexture = createTextureWithFallback(src + "dirt.jpeg", false, "dirt");
   g_wallTexture = g_skyTexture;
-  g_wolfTexture = createTextureWithFallback("../minecraft-wolf/textures/wolf.png", false, "wolf");
+  g_wolfTexture = createTextureWithFallback(base + "minecraft-wolf/textures/wolf.png", false, "wolf");
 }
 
 function isPowerOf2(n) { return n > 0 && (n & (n - 1)) === 0; }
