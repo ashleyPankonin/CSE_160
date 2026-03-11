@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basketball | CSE160 Assignment 5</title>
+  <style>
+    body { margin: 0; overflow: hidden; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    #c { display: block; width: 100vw; height: 100vh; }
+    #hud {
+      position: absolute; top: 12px; left: 12px; padding: 10px 14px;
+      background: rgba(0,0,0,0.7); color: #fff; border-radius: 10px;
+      font-size: 14px; pointer-events: none; min-width: 200px;
+    }
+    #hud strong { color: #facc15; }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <div id="hud">
+    <strong>Basketball</strong><br />
+    Score: <span id="score">0</span> &nbsp;|&nbsp;
+    Shots: <span id="shots">0</span><br />
+    Drag from the ball and release to shoot.
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
+
